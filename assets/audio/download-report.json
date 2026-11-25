@@ -28,7 +28,13 @@
     "hello",
     "guide",
     "rabbitVoice",
-    "bearVoice"
+    "bearVoice",
+    "rooster",
+    "owl",
+    "goose",
+    "wolf",
+    "cricket",
+    "seagull"
   ],
   "failed": []
 }

@@ -52,3 +52,24 @@ Scratch is developed by the Lifelong Kindergarten Group at the MIT Media Lab. Б
 - Волчонок: https://assets.scratch.mit.edu/internalapi/asset/5e36d74bb16aa5085b901362788b0fbf.wav/get/
 - Сверчок: https://assets.scratch.mit.edu/internalapi/asset/a2b3cac37065c109aac17ed46005445e.wav/get/
 - Чайка: https://assets.scratch.mit.edu/internalapi/asset/42bbbb6c37439abc82057ec2e67b78dc.wav/get/
+
+## Лапки 2.0
+
+Тракторчик — оригинальная SVG-иллюстрация, не официальный персонаж мультфильма. Используются ранее записанные русские фразы, без копирования голоса актёра. Дополнительные записи Scratch:
+- engine: https://assets.scratch.mit.edu/internalapi/asset/f5c4e2311024f18c989e53f9b3448db8.wav/get/
+- horn: https://assets.scratch.mit.edu/internalapi/asset/7c887f6a2ecd1cdb85d5527898d7f7a0.wav/get/
+- train: https://assets.scratch.mit.edu/internalapi/asset/50f29d0e028ec5c11210d0e2f91f83dd.wav/get/
+- car: https://assets.scratch.mit.edu/internalapi/asset/ead1da4a87ff6cb53441142f7ac37b8.wav/get/
+- splash: https://assets.scratch.mit.edu/internalapi/asset/6aed5e38d40b87a21d893d26fa2858c0.wav/get/
+- rain: https://assets.scratch.mit.edu/internalapi/asset/b5db20c28ef4946137129b47772dcf69.wav/get/
+- bell: https://assets.scratch.mit.edu/internalapi/asset/b67db6ed07f882e52a9ef4dbb76f5f64.wav/get/
+- drum: https://assets.scratch.mit.edu/internalapi/asset/f730246174873cd4ae4127c83e475b50.wav/get/
+- clap: https://assets.scratch.mit.edu/internalapi/asset/9502142875e67f7b0292a117a27e9563.wav/get/
+- guitar: https://assets.scratch.mit.edu/internalapi/asset/29000fa713f70765147ee0551fa42d9e.wav/get/
+- water: https://assets.scratch.mit.edu/internalapi/asset/e133e625fd367d269e76964d4b722fc2.wav/get/
+- boing: https://assets.scratch.mit.edu/internalapi/asset/53a3c2e27d1fb5fdb14aaf0cb41e7889.wav/get/
+- collect: https://assets.scratch.mit.edu/internalapi/asset/32514c51e03db680e9c63857b840ae78.wav/get/
+- garden: https://assets.scratch.mit.edu/internalapi/asset/7c25f6d39011cd2ee5ffb1af539d9d0c.wav/get/
+- wind: https://assets.scratch.mit.edu/internalapi/asset/6a10c380af8c400f8f6eea84eb28bd12.wav/get/
+- snore: https://assets.scratch.mit.edu/internalapi/asset/5b1a88cd6db7e239642d7ca8a0d74a1a.wav/get/
+- rattle: https://assets.scratch.mit.edu/internalapi/asset/74f1c07e0bcd7811fd9d456a5f8667f8.wav/get/

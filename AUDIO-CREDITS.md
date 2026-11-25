@@ -36,4 +36,10 @@ Scratch is developed by the Lifelong Kindergarten Group at the MIT Media Lab. Б
 - Pig grunt — Erdie (Freesound), CC BY 3.0, https://commons.wikimedia.org/wiki/File:Pig_grunt_-_Erdie.ogg ; https://creativecommons.org/licenses/by/3.0/ .
 - «Привет» — Tatiana Kerbush, Lingua Libre, CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:LL-Q7737_(rus)-Tatiana_Kerbush-Привет.wav ; https://creativecommons.org/licenses/by-sa/4.0/ .
 
-Обучающие русские фразы пока используют встроенную озвучку браузера; телефон использует готовые записи.
+## HeyGen Voice
+
+Предварительно сгенерированные русские записи: Polina — Bright & Articulate (задания), Alisa — Vibrant & Punchy (зайка), Grigory — Warm & Expressive (мишка). Озвучка создана через подключённую учётную запись HeyGen. Голоса синтетические, но записаны заранее; браузерный синтез для воспроизведения не используется. Котик, щенок и лягушка используют ранее подключённые звуковые эффекты. Аудиофайлы HeyGen воспроизводятся по возвращённым сервисом URL; доступность и срок хранения зависят от источника.
+
+- guide: https://resource2.heygen.ai/text_to_speech/be3fc3ee7fc949aa9cfdeab6dd58460b/655364e79506483a8f768ba50199cbb4/id=265843444db347d696091cbffa3bf976.wav
+- rabbitVoice: https://resource2.heygen.ai/text_to_speech/be3fc3ee7fc949aa9cfdeab6dd58460b/cb404f2d35334184839c66cbab7937b2/id=b7bd52a8857f4f44be4ce15d078ea1d4.wav
+- bearVoice: https://resource2.heygen.ai/text_to_speech/be3fc3ee7fc949aa9cfdeab6dd58460b/d7c91f5e68db45c180f555f5e3b8552f/id=e00dff71651d41b393c4c1e97df08b0d.wav

@@ -22,7 +22,7 @@ jobs:
           html = pathlib.Path('index.html')
           def download(item):
               key, url = item
-              dest = root / (key + '.wav')
+              dest = root / (key + ('.ogg' if url.endswith('.ogg') else '.wav'))
               if dest.exists() and dest.stat().st_size > 44:
                   return key, url, str(dest)
               with tempfile.TemporaryDirectory() as tmp:
@@ -31,11 +31,12 @@ jobs:
                   if result.returncode:
                       print('FAILED DOWNLOAD:', key)
                       return None
-                  result = subprocess.run(['ffmpeg','-nostdin','-v','error','-y','-i',str(source),'-vn','-ac','1','-ar','44100','-c:a','pcm_s16le',str(dest)])
-                  if result.returncode or not dest.exists() or dest.stat().st_size <= 44:
-                      dest.unlink(missing_ok=True)
-                      print('FAILED VALIDATION:', key)
+                  data = source.read_bytes()
+                  valid = (len(data) > 44 and data[:4] == b'RIFF' and data[8:12] == b'WAVE' and b'data' in data) or (len(data) > 44 and data[:4] == b'OggS')
+                  if not valid:
+                      print('FAILED AUDIO HEADER:', key)
                       return None
+                  dest.write_bytes(data)
                   print('SAVED:', dest)
                   return key, url, str(dest)
           with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:

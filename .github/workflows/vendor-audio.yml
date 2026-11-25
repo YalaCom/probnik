@@ -1,0 +1,63 @@
+name: Vendor audio files
+on:
+  push:
+    paths:
+      - '.github/workflows/vendor-audio.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  vendor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download and validate audio
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, pathlib, subprocess, tempfile, concurrent.futures
+          manifest = json.loads(r'''{"dog":"https://assets.scratch.mit.edu/internalapi/asset/cd8fa8390b0efdd281882533fbfcfcfb.wav/get/","cat":"https://assets.scratch.mit.edu/internalapi/asset/83c36d806dc92327b9e7049a565c6bff.wav/get/","cow":"https://assets.scratch.mit.edu/internalapi/asset/7206280bd4444a06d25f19a84dcb56b1.wav/get/","bird":"https://assets.scratch.mit.edu/internalapi/asset/3b8236bbb288019d93ae38362e865972.wav/get/","frog":"https://assets.scratch.mit.edu/internalapi/asset/c6ce0aadb89903a43f76fc20ea57633e.wav/get/","sheep":"https://assets.scratch.mit.edu/internalapi/asset/ca694053020e42704bcf1fc01a70f1c3.wav/get/","horse":"https://assets.scratch.mit.edu/internalapi/asset/f9513bacf2fc665de05a8dd9bcb88117.wav/get/","duck":"https://assets.scratch.mit.edu/internalapi/asset/af5b039e1b05e0ccb12944f648a8884e.wav/get/","pop":"https://assets.scratch.mit.edu/internalapi/asset/83a9787d4cb6f3b7632b4ddfebf74367.wav/get/","reward":"https://assets.scratch.mit.edu/internalapi/asset/b92de59d992a655c1b542223a784cda6.wav/get/","tap":"https://assets.scratch.mit.edu/internalapi/asset/0f2aa4c395cb932512defb2d14dc1691.wav/get/","ring":"https://assets.scratch.mit.edu/internalapi/asset/895c0887b4de4e0051e3adbceaf96061.wav/get/","end":"https://assets.scratch.mit.edu/internalapi/asset/56df0714ed1ed455a2befd787a077214.wav/get/","chatter":"https://assets.scratch.mit.edu/internalapi/asset/fd8543abeeba255072da239223d2d342.wav/get/","laugh":"https://assets.scratch.mit.edu/internalapi/asset/1e8e7fb94103282d02a4bb597248c788.wav/get/","laugh2":"https://assets.scratch.mit.edu/internalapi/asset/8b1e025f38b0635f7e34e9afcace1b5e.wav/get/","toy":"https://assets.scratch.mit.edu/internalapi/asset/09d36c3c7531a0a1224437f3994bad40.wav/get/","C":"https://assets.scratch.mit.edu/internalapi/asset/d27ed8d953fe8f03c00f4d733d31d2cc.wav/get/","D":"https://assets.scratch.mit.edu/internalapi/asset/51381ac422605ee8c7d64cfcbfd75efc.wav/get/","E":"https://assets.scratch.mit.edu/internalapi/asset/c818fdfaf8a0efcb562e24e794700a57.wav/get/","F":"https://assets.scratch.mit.edu/internalapi/asset/cdab3cce84f74ecf53e3941c6a003b5e.wav/get/","G":"https://assets.scratch.mit.edu/internalapi/asset/42bb2ed28e7023e111b33220e1594a6f.wav/get/","A":"https://assets.scratch.mit.edu/internalapi/asset/0727959edb2ea0525feed9b0c816991c.wav/get/","B":"https://assets.scratch.mit.edu/internalapi/asset/86826c6022a46370ed1afae69f1ab1b9.wav/get/","pig":"https://upload.wikimedia.org/wikipedia/commons/a/ac/Pig_grunt_-_Erdie.ogg","hello":"https://upload.wikimedia.org/wikipedia/commons/0/08/LL-Q7737_%28rus%29-Tatiana_Kerbush-%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82.wav","guide":"https://resource2.heygen.ai/text_to_speech/be3fc3ee7fc949aa9cfdeab6dd58460b/655364e79506483a8f768ba50199cbb4/id=265843444db347d696091cbffa3bf976.wav","rabbitVoice":"https://resource2.heygen.ai/text_to_speech/be3fc3ee7fc949aa9cfdeab6dd58460b/cb404f2d35334184839c66cbab7937b2/id=b7bd52a8857f4f44be4ce15d078ea1d4.wav","bearVoice":"https://resource2.heygen.ai/text_to_speech/be3fc3ee7fc949aa9cfdeab6dd58460b/d7c91f5e68db45c180f555f5e3b8552f/id=e00dff71651d41b393c4c1e97df08b0d.wav"}''')
+          root = pathlib.Path('assets/audio')
+          root.mkdir(parents=True, exist_ok=True)
+          html = pathlib.Path('index.html')
+          def download(item):
+              key, url = item
+              dest = root / (key + '.wav')
+              if dest.exists() and dest.stat().st_size > 44:
+                  return key, url, str(dest)
+              with tempfile.TemporaryDirectory() as tmp:
+                  source = pathlib.Path(tmp) / 'source'
+                  result = subprocess.run(['curl','--fail','--location','--silent','--show-error','--retry','1','--max-time','35','--user-agent','LapkiAudioVendor/1.0 (GitHub YalaCom/probnik)',url,'-o',str(source)])
+                  if result.returncode:
+                      print('FAILED DOWNLOAD:', key)
+                      return None
+                  result = subprocess.run(['ffmpeg','-nostdin','-v','error','-y','-i',str(source),'-vn','-ac','1','-ar','44100','-c:a','pcm_s16le',str(dest)])
+                  if result.returncode or not dest.exists() or dest.stat().st_size <= 44:
+                      dest.unlink(missing_ok=True)
+                      print('FAILED VALIDATION:', key)
+                      return None
+                  print('SAVED:', dest)
+                  return key, url, str(dest)
+          with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
+              results = list(pool.map(download, manifest.items()))
+          code = html.read_text()
+          success = [r for r in results if r]
+          for key, url, path in success:
+              code = code.replace(json.dumps(url), json.dumps('./'+path))
+          html.write_text(code)
+          if not success:
+              raise SystemExit('No audio downloaded')
+          report = {'saved': [r[0] for r in success], 'failed': [k for k in manifest if k not in {r[0] for r in success}]}
+          (root/'download-report.json').write_text(json.dumps(report, indent=2)+'\n')
+          print(report)
+          PY
+      - name: Commit validated audio and local paths
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/audio index.html
+          if ! git diff --cached --quiet; then
+            git commit -m "Store validated audio files inside Lapki"
+            git push
+          fi

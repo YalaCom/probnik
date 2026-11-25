@@ -43,3 +43,12 @@ Scratch is developed by the Lifelong Kindergarten Group at the MIT Media Lab. Б
 - guide: https://resource2.heygen.ai/text_to_speech/be3fc3ee7fc949aa9cfdeab6dd58460b/655364e79506483a8f768ba50199cbb4/id=265843444db347d696091cbffa3bf976.wav
 - rabbitVoice: https://resource2.heygen.ai/text_to_speech/be3fc3ee7fc949aa9cfdeab6dd58460b/cb404f2d35334184839c66cbab7937b2/id=b7bd52a8857f4f44be4ce15d078ea1d4.wav
 - bearVoice: https://resource2.heygen.ai/text_to_speech/be3fc3ee7fc949aa9cfdeab6dd58460b/d7c91f5e68db45c180f555f5e3b8552f/id=e00dff71651d41b393c4c1e97df08b0d.wav
+
+### Дополнительные звуки Scratch
+
+- Петушок: https://assets.scratch.mit.edu/internalapi/asset/2e375acae2c7c0d655935a9de14b12f6.wav/get/
+- Совушка: https://assets.scratch.mit.edu/internalapi/asset/e8b6d605f5a1bb36c29e4e21ef754209.wav/get/
+- Гусёнок: https://assets.scratch.mit.edu/internalapi/asset/16a3b9d516e125cdb2ad74cd8d205d71.wav/get/
+- Волчонок: https://assets.scratch.mit.edu/internalapi/asset/5e36d74bb16aa5085b901362788b0fbf.wav/get/
+- Сверчок: https://assets.scratch.mit.edu/internalapi/asset/a2b3cac37065c109aac17ed46005445e.wav/get/
+- Чайка: https://assets.scratch.mit.edu/internalapi/asset/42bbbb6c37439abc82057ec2e67b78dc.wav/get/

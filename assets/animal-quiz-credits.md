@@ -3,8 +3,7 @@
 Фотографии и записи хранятся локально. Исходные звуки старых животных указаны в AUDIO-CREDITS.md.
 
 ## Собака
-
-- image: [Huskiesatrest.jpg](https://commons.wikimedia.org/wiki/File:Huskiesatrest.jpg); автор: M. Rehemtulla; лицензия: CC BY 2.0 https://creativecommons.org/licenses/by/2.0. 
+- image: [GoldenRetrieverStanding.JPG](https://commons.wikimedia.org/wiki/File:GoldenRetrieverStanding.JPG); автор: ChrisStubbs; лицензия: CC BY-SA 3.0 http://creativecommons.org/licenses/by-sa/3.0/.
 
 ## Кошка
 
@@ -28,16 +27,14 @@ derivative work: Dana boomer (talk); лицензия: CC BY-SA 3.0 http://creat
 - image: [Pig_farm_Vampula_1.jpg](https://commons.wikimedia.org/wiki/File:Pig_farm_Vampula_1.jpg); автор: kallerna; лицензия: CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0. 
 
 ## Утка
-
-- image: [Taiwanese_duck_farm.jpg](https://commons.wikimedia.org/wiki/File:Taiwanese_duck_farm.jpg); автор: MiNe (sfmine79) from Taipei, Taiwan; лицензия: CC BY 2.0 https://creativecommons.org/licenses/by/2.0. 
+- image: [Anas platyrhynchos domesticus 001.jpg](https://commons.wikimedia.org/wiki/File:Anas_platyrhynchos_domesticus_001.jpg); автор: Luis García (Zaqarbal); лицензия: CC BY-SA 3.0 https://creativecommons.org/licenses/by-sa/3.0.
 
 ## Гусь
 
 - image: [Sunset_Park_-_Las_Vegas_(11044584144).jpg](https://commons.wikimedia.org/wiki/File:Sunset_Park_-_Las_Vegas_(11044584144).jpg); автор: Tomás Del Coro from Las Vegas, Nevada, USA; лицензия: CC BY-SA 2.0 https://creativecommons.org/licenses/by-sa/2.0. 
 
 ## Петух
-
-- image: [Male_and_female_chicken_sitting_together.jpg](https://commons.wikimedia.org/wiki/File:Male_and_female_chicken_sitting_together.jpg); автор: Andrei Niemimäki from Turku, Finland; лицензия: CC BY-SA 2.0 https://creativecommons.org/licenses/by-sa/2.0. 
+- image: [Domestic Rooster.jpg](https://commons.wikimedia.org/wiki/File:Domestic_Rooster.jpg); автор: Cody Hough; лицензия: CC BY-SA 3.0 https://creativecommons.org/licenses/by-sa/3.0.
 
 ## Лягушка
 
@@ -52,8 +49,7 @@ derivative work: Dana boomer (talk); лицензия: CC BY-SA 3.0 http://creat
 - image: [Eurasian_wolf_2.jpg](https://commons.wikimedia.org/wiki/File:Eurasian_wolf_2.jpg); автор: User:Mas3cf; лицензия: CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0. 
 
 ## Сверчок
-
-- Не удалось получить: image
+- image: [Feldgrille Gryllus campestris.jpg](https://commons.wikimedia.org/wiki/File:Feldgrille_Gryllus_campestris.jpg); автор: Holger Krisp; лицензия: CC BY 3.0 https://creativecommons.org/licenses/by/3.0.
 
 ## Чайка
 
@@ -72,7 +68,7 @@ derivative work: Dana boomer (talk); лицензия: CC BY-SA 3.0 http://creat
 ## Курица
 
 - audio: [Hen announcing shes lain an egg.ogg](https://commons.wikimedia.org/wiki/File:Hen_announcing_shes_lain_an_egg.ogg); автор: alys; лицензия: Public domain . Converted to mono MP3, first 4.5 seconds.
-- image: [Male_and_female_chicken_sitting_together.jpg](https://commons.wikimedia.org/wiki/File:Male_and_female_chicken_sitting_together.jpg); автор: Andrei Niemimäki from Turku, Finland; лицензия: CC BY-SA 2.0 https://creativecommons.org/licenses/by-sa/2.0. 
+- image: [Hen chicken.jpg](https://commons.wikimedia.org/wiki/File:Hen_chicken.jpg); автор: Thegreenj; лицензия: CC BY-SA 3.0 http://creativecommons.org/licenses/by-sa/3.0/.
 
 ## Голубь
 

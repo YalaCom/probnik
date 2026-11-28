@@ -1,11 +1,7 @@
 {
   "audio_count": 24,
-  "image_count": 23,
-  "errors": {
-    "cricket": {
-      "image": "'pageimage'"
-    }
-  },
+  "image_count": 24,
+  "errors": {},
   "media": {
     "dog": {
       "audio": "./assets/audio/animal-quiz/dog.mp3",
@@ -56,7 +52,8 @@
       "image": "./assets/images/animal-quiz/wolf.jpg"
     },
     "cricket": {
-      "audio": "./assets/audio/animal-quiz/cricket.mp3"
+      "audio": "./assets/audio/animal-quiz/cricket.mp3",
+      "image": "./assets/images/animal-quiz/cricket.jpg"
     },
     "seagull": {
       "audio": "./assets/audio/animal-quiz/seagull.mp3",

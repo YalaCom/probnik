@@ -48,7 +48,8 @@ window.LAPKI_ANIMAL_MEDIA = {
     "image": "./assets/images/animal-quiz/wolf.jpg"
   },
   "cricket": {
-    "audio": "./assets/audio/animal-quiz/cricket.mp3"
+    "audio": "./assets/audio/animal-quiz/cricket.mp3",
+    "image": "./assets/images/animal-quiz/cricket.jpg"
   },
   "seagull": {
     "audio": "./assets/audio/animal-quiz/seagull.mp3",

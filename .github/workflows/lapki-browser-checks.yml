@@ -1,0 +1,23 @@
+name: Lapki browser checks
+on:
+  push:
+    paths:
+      - 'index.html'
+      - 'scripts/test-lapki-v3.cjs'
+      - '.github/workflows/lapki-browser-checks.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install browser test runner
+        run: |
+          npm install --prefix /tmp/lapki-check --no-save playwright
+          node /tmp/lapki-check/node_modules/playwright/cli.js install chromium
+      - name: Test local site
+        run: |
+          python3 -m http.server 8765 > /tmp/lapki-http.log 2>&1 &
+          NODE_PATH=/tmp/lapki-check/node_modules node scripts/test-lapki-v3.cjs

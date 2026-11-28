@@ -1,0 +1,146 @@
+{
+  "dog": {
+    "name": "Собака",
+    "article": "Dog",
+    "file": "dog.wav",
+    "existing": true
+  },
+  "cat": {
+    "name": "Кошка",
+    "article": "Cat",
+    "file": "cat.wav",
+    "existing": true
+  },
+  "cow": {
+    "name": "Корова",
+    "article": "Cattle",
+    "file": "cow.wav",
+    "existing": true
+  },
+  "horse": {
+    "name": "Лошадь",
+    "article": "Horse",
+    "file": "horse.wav",
+    "existing": true
+  },
+  "sheep": {
+    "name": "Овечка",
+    "article": "Sheep",
+    "file": "sheep.wav",
+    "existing": true
+  },
+  "pig": {
+    "name": "Свинка",
+    "article": "Pig",
+    "file": "pig.ogg",
+    "existing": true
+  },
+  "duck": {
+    "name": "Утка",
+    "article": "Domestic duck",
+    "file": "duck.wav",
+    "existing": true
+  },
+  "goose": {
+    "name": "Гусь",
+    "article": "Domestic goose",
+    "file": "goose.wav",
+    "existing": true
+  },
+  "rooster": {
+    "name": "Петух",
+    "article": "Rooster",
+    "file": "rooster.wav",
+    "existing": true
+  },
+  "frog": {
+    "name": "Лягушка",
+    "article": "European tree frog",
+    "file": "frog.wav",
+    "existing": true
+  },
+  "owl": {
+    "name": "Сова",
+    "article": "Tawny owl",
+    "file": "owl.wav",
+    "existing": true
+  },
+  "wolf": {
+    "name": "Волк",
+    "article": "Wolf",
+    "file": "wolf.wav",
+    "existing": true
+  },
+  "cricket": {
+    "name": "Сверчок",
+    "article": "Field cricket",
+    "file": "cricket.wav",
+    "existing": true
+  },
+  "seagull": {
+    "name": "Чайка",
+    "article": "European herring gull",
+    "file": "seagull.wav",
+    "existing": true
+  },
+  "crow": {
+    "name": "Ворона",
+    "article": "Hooded crow",
+    "file": "Corvus cornix.ogg",
+    "existing": false
+  },
+  "goat": {
+    "name": "Коза",
+    "article": "Goat",
+    "file": "Herd of goats bleating.ogg",
+    "existing": false
+  },
+  "hen": {
+    "name": "Курица",
+    "article": "Chicken",
+    "file": "Hen announcing shes lain an egg.ogg",
+    "existing": false
+  },
+  "pigeon": {
+    "name": "Голубь",
+    "article": "Rock dove",
+    "file": "Dove cooing.ogg",
+    "existing": false
+  },
+  "turkey": {
+    "name": "Индюк",
+    "article": "Domestic turkey",
+    "file": "Gobbler.ogg",
+    "existing": false
+  },
+  "bee": {
+    "name": "Пчела",
+    "article": "Western honey bee",
+    "file": "Bee buzzing sound (animal noises).opus",
+    "existing": false
+  },
+  "cuckoo": {
+    "name": "Кукушка",
+    "article": "Common cuckoo",
+    "file": "Cuculus canorus song.ogg",
+    "existing": false
+  },
+  "woodpecker": {
+    "name": "Дятел",
+    "article": "Great spotted woodpecker",
+    "file": "Great Spotted Woodpecker drum.ogg",
+    "existing": false
+  },
+  "donkey": {
+    "name": "Ослик",
+    "article": "Donkey",
+    "file": "157763 felix-blume a-donkey-is-braying-in-his-enclosure-in-south-of-france.wav",
+    "existing": false
+  },
+  "sparrow": {
+    "name": "Воробей",
+    "article": "House sparrow",
+    "file": "House Sparrows chirping.ogg",
+    "existing": false
+  }
+}

@@ -1,0 +1,32 @@
+name: Animal quiz media
+on:
+  push:
+    paths:
+      - '.github/workflows/animal-quiz-media.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  media:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Optional audio conversion
+        shell: bash
+        run: |
+          if ! command -v ffmpeg >/dev/null; then
+            python3 -m pip install --target /tmp/lapki-ffmpeg imageio-ffmpeg || true
+          fi
+      - name: Download verified photo and animal recordings
+        shell: bash
+        run: PYTHONPATH=/tmp/lapki-ffmpeg python3 scripts/animal-quiz-media.py
+      - name: Save actual files and media manifest
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/audio/animal-quiz assets/images/animal-quiz assets/animal-quiz-media.js assets/animal-quiz-report.json assets/animal-quiz-credits.md
+          if ! git diff --cached --quiet; then
+            git commit -m "Save animal quiz photos and audio locally"
+            git push
+          fi

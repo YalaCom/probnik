@@ -35,9 +35,14 @@ def audio_valid(b):return len(b)>44 and ((b[:4]==b'RIFF' and b[8:12]==b'WAVE') o
 def image_valid(b):return len(b)>200 and (b[:3]==b'\xff\xd8\xff' or b[:8]==b'\x89PNG\r\n\x1a\n' or (b[:4]==b'RIFF' and b[8:12]==b'WEBP'))
 def save_photo(id,item):
     # English Wikipedia's lead photograph, then license and source checked at Commons.
-    q=api(WIKI,action='query',titles=item['article'],redirects=1,prop='pageimages',piprop='name|thumbnail',pithumbsize=640,pilicense='free')
-    page=q['query']['pages'][0]
-    file=page['pageimage']
+    overrides={'cricket':'Feldgrille Gryllus campestris.jpg','dog':'GoldenRetrieverStanding.JPG','hen':'Hen chicken.jpg','rooster':'Domestic Rooster.jpg','duck':'Anas platyrhynchos domesticus 001.jpg'}
+    if id in overrides:
+        file=overrides[id]
+        page={}
+    else:
+        q=api(WIKI,action='query',titles=item['article'],redirects=1,prop='pageimages',piprop='name|thumbnail',pithumbsize=640,pilicense='free')
+        page=q['query']['pages'][0]
+        file=page['pageimage']
     info=image_info(file,640)
     c=credit(info,file)
     url=info.get('thumburl') or page.get('thumbnail',{}).get('source') or info['url']
@@ -117,6 +122,44 @@ def process(pair):
     except Exception as e: errors['image']=str(e)[:250]
     print(id, result, errors,flush=True)
     return id,result,credits,errors
+# Refresh only curated photos on subsequent runs.
+previous_path=ROOT/'assets/animal-quiz-report.json'
+if previous_path.exists():
+    previous=json.loads(previous_path.read_text())
+    oldmedia=previous['media']
+    edits=['cricket','dog','hen','rooster','duck']
+    oldcredits=(ROOT/'assets/animal-quiz-credits.md').read_text()
+    def photo_refresh(id):
+        try:
+            path,c=save_photo(id,SOURCES[id])
+            return id,path,c,None
+        except Exception as e:return id,None,None,str(e)[:250]
+    with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool:
+        changes=list(pool.map(photo_refresh,edits))
+    for id,path,c,error in changes:
+        if path:
+            oldmedia.setdefault(id,{})['image']=path
+            if id in previous['errors']:
+                previous['errors'][id].pop('image',None)
+                previous['errors'][id].pop('image_refresh',None)
+                if not previous['errors'][id]:previous['errors'].pop(id)
+            name=SOURCES[id]['name']
+            start=oldcredits.index('## '+name+'\n')
+            end=oldcredits.find('\n## ',start+1)
+            if end<0:end=len(oldcredits)
+            block=oldcredits[start:end]
+            block=re.sub(r'^- image:.*(?:\n(?!- |## |\s*$)[^\n]*)*','',block,flags=re.M)
+            block=re.sub(r'^- Не удалось получить: image\s*','',block,flags=re.M)
+            line=f'- image: [{c["file"]}]({c["source"]}); автор: {c["author"]}; лицензия: {c["license"]} {c.get("license_url","")}.'
+            oldcredits=oldcredits[:start]+block.rstrip()+'\n'+line+'\n\n'+oldcredits[end:].lstrip('\n')
+        else:
+            previous['errors'].setdefault(id,{})['image_refresh']=error
+    previous['image_count']=sum('image' in r for r in oldmedia.values())
+    (ROOT/'assets/animal-quiz-media.js').write_text('window.LAPKI_ANIMAL_MEDIA = '+json.dumps(oldmedia,ensure_ascii=False,indent=2)+';\n')
+    previous_path.write_text(json.dumps(previous,ensure_ascii=False,indent=2)+'\n')
+    (ROOT/'assets/animal-quiz-credits.md').write_text(oldcredits)
+    print(json.dumps(previous,ensure_ascii=False),flush=True)
+    raise SystemExit(0)
 with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool:
     records=list(pool.map(process,SOURCES.items()))
 media={id:r for id,r,c,e in records if r}

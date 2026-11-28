@@ -56,6 +56,23 @@ img,svg{-webkit-user-drag:none}
 .numbers{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media(max-width:620px){.big-btn{min-height:112px}.choice-grid{gap:7px}.choice{padding:6px;min-height:100px}.shape{width:61px;height:61px}.oval{width:69px;height:50px}.game{padding:12px}.tile:first-child{min-height:165px}.play-scene{min-height:225px}.tractor-world{min-height:235px}}
 @media(prefers-reduced-motion:reduce){.tractor-art.drive{animation:none!important}}
+
+/* Scoped exclusively to the animal sound guessing game. */
+.listen-room{max-width:780px;margin:0 auto;text-align:center;padding:2px 0 8px}
+.listen-title{font-size:clamp(23px,5vw,36px);line-height:1.15;letter-spacing:-.04em;margin:0 0 14px}
+.listen-play{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;min-height:80px;background:#d8eaff;border:2px solid #bdd8f2;border-radius:25px;box-shadow:0 4px 0 #b6d2ee;font-size:clamp(16px,4vw,23px);padding:10px}
+.listen-speaker{font-size:39px;line-height:1}.listen-play.listening .listen-speaker{animation:bounce .8s ease-in-out 2}
+.listen-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin:22px 0 12px}
+.listen-card{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;background:#fff9eb;border:3px solid #f1e4ce;border-radius:24px;padding:8px;box-shadow:0 4px 0 #eadbc1;overflow:hidden}
+.listen-card:nth-child(2){background:#eff7e8;border-color:#dbe9d2;box-shadow:0 4px 0 #d5e5cc}
+.listen-picture{position:relative;width:100%;height:clamp(135px,32vw,280px);border-radius:16px;overflow:hidden;background:#fff;display:grid;place-items:center}
+.listen-photo{position:absolute;width:100%;height:100%;inset:0;object-fit:contain;pointer-events:none}
+.listen-fallback{font-size:clamp(66px,17vw,124px);line-height:1}.listen-name{font-size:clamp(17px,4.1vw,25px);padding:10px 0 5px}
+.listen-info{min-height:46px;color:#527a56;font-size:clamp(19px,4.5vw,27px);font-weight:800;display:grid;place-items:center}
+.listen-card.listen-correct{border-color:#7dc18a;background:#dff4d9;box-shadow:0 4px 0 #a9d8a4;animation:bounce .5s ease;opacity:1}
+.listen-card.listen-dim,.listen-card.listen-try{opacity:.57}.listen-card.listen-hint{border-color:#a6d2a0}
+@media(max-width:380px){.listen-card{padding:5px;border-radius:19px}.listen-grid{gap:9px}.listen-picture{height:135px}.listen-name{font-size:16px}}
+@media(prefers-reduced-motion:reduce){.listen-card,.listen-play .listen-speaker{animation:none!important}}
 </style>
 </head>
 <body><main class="wrap"><header><button class="brand" id="home" aria-label="Главная"><span class="brand-icon">🐾</span>лапки<span style="color:#db9a53">.</span></button><button class="sound" id="sound" aria-pressed="true">🔊 Звук</button></header>
@@ -63,6 +80,7 @@ img,svg{-webkit-user-drag:none}
 <svg class="hero-art" viewBox="0 0 320 240" aria-hidden="true"><path fill="#f2c977" d="M0 213Q85 152 156 207T320 193V240H0Z"/><g fill="#fff5d6"><path d="M30 48q8-17 19 0 15-7 18 7t-18 9H31q-18-5-1-16"/><path d="M245 38q8-14 17 0 15-7 17 7t-19 9h-16q-16-3 1-16"/></g><g transform="translate(45 14) rotate(-7 105 105)"><ellipse cx="111" cy="183" rx="78" ry="45" fill="#fff5e5"/><ellipse cx="62" cy="65" rx="20" ry="57" fill="#fff5e5" transform="rotate(-13 62 65)"/><ellipse cx="62" cy="65" rx="10" ry="42" fill="#f4bdba" transform="rotate(-13 62 65)"/><ellipse cx="122" cy="63" rx="20" ry="57" fill="#fff5e5" transform="rotate(9 122 63)"/><ellipse cx="122" cy="63" rx="10" ry="42" fill="#f4bdba" transform="rotate(9 122 63)"/><ellipse cx="95" cy="132" rx="72" ry="59" fill="#fff9ee"/><ellipse cx="69" cy="130" rx="5" ry="8" fill="#544743"/><ellipse cx="120" cy="130" rx="5" ry="8" fill="#544743"/><ellipse cx="95" cy="143" rx="8" ry="5" fill="#d99392"/><path d="M95 147q-9 12-17 4m17-4q8 12 16 4" stroke="#8c655a" stroke-width="2.5" stroke-linecap="round" fill="none"/><ellipse cx="49" cy="144" rx="13" ry="8" fill="#f7c6c2"/><ellipse cx="142" cy="144" rx="13" ry="8" fill="#f7c6c2"/><path d="M70 179q24-20 49 0l-9 33-31 2Z" fill="#b7d9bc"/><path d="m94 184 6 8 9-8-9-4Z" fill="#fff9e8"/></g><g transform="translate(212 139)"><circle cx="36" cy="42" r="30" fill="#a9cfa6"/><circle cx="21" cy="20" r="13" fill="#a9cfa6"/><circle cx="51" cy="20" r="13" fill="#a9cfa6"/><circle cx="21" cy="20" r="4" fill="#435c48"/><circle cx="51" cy="20" r="4" fill="#435c48"/><path d="M25 44q11 12 23 0" fill="none" stroke="#435c48" stroke-width="3" stroke-linecap="round"/><circle cx="13" cy="41" r="5" fill="#efc3ae"/><circle cx="59" cy="41" r="5" fill="#efc3ae"/></g><g fill="#fff8db"><path d="m205 62 6 11 12 3-10 8 1 13-10-8-11 6 3-12-9-9 13-1Z"/><circle cx="284" cy="105" r="6"/><circle cx="20" cy="119" r="5"/></g></svg>
 </div><div class="section-title"><h2>Во что поиграем?</h2><span>24 игровые комнаты</span></div><div id="tiles" class="tiles"></div><div class="foot">Без рекламы · без покупок · только игра · <a href="AUDIO-CREDITS.md" style="color:inherit">Источники звуков</a></div></section>
 <section id="activity" class="view" hidden><div class="topline"><button class="back" id="back" aria-label="Назад">←</button><h1 id="game-title"></h1></div><div class="game" id="game"></div></section></main>
+<script src="./assets/animal-quiz-media.js"></script>
 <script>
 'use strict';
 const $=s=>document.querySelector(s), game=$('#game'), menu=$('#menu'), activity=$('#activity');
@@ -162,7 +180,46 @@ function paint(){prompt('Рисуй пальчиком');const canvas=make('canv
 function garden(){warm(['water','garden','collect']);prompt('Полей семечки');const g=playGrid(true);['🌻','🌷','🌼','🌸','🪻','🌹'].forEach((e,i)=>{let step=0;g.append(big('🟤','',b=>{step=(step+1)%4;b.firstChild.textContent=['🟤','🌱','🌿',e][step];tapSample(step===3?'collect':'water',b);if(step===3){party(b);say('Молодец!')}},pastels[i]))})}
 function transport(){prompt('Как звучат машинки?');const g=playGrid();[['🚗','Машинка','car'],['🚜','Трактор','engine'],['🚂','Паровоз','train'],['🚙','Бип-бип','horn']].forEach(([e,n,k])=>g.append(big(e,n,b=>tapSample(k,b))));warm(['car','engine','train','horn'])}
 function drums(){prompt('Сыграй в оркестре');const g=playGrid();[['🥁','Барабан','drum'],['🔔','Колокольчик','bell'],['🎸','Гитара','guitar'],['👏','Хлопки','clap'],['🎹','Пианино','C'],['🪇','Погремушка','rattle']].forEach(([e,n,k])=>g.append(big(e,n,b=>{sample(k,.32);playAnim(b)})));warm(['drum','bell','guitar','clap','C','rattle'])}
-function listen(){game.replaceChildren();let target=Math.floor(Math.random()*9),locked=false;prompt('Кто так говорит?');const play=big('🔊','Послушай',b=>tapSample(animalKeys[target],b),'#d6e8ff');play.style.width='100%';game.append(play);const g=playGrid(true);g.style.marginTop='15px';shuffled([target,...shuffled(Array.from({length:9},(_,i)=>i).filter(i=>i!==target)).slice(0,2)]).forEach(i=>g.append(big(beasts[i][0],'',b=>{if(locked)return;if(i===target){locked=true;good(b);later(listen,1700)}else say('Попробуй ещё')})));warm(animalKeys.slice(0,9))}
+// Only the "Угадай животное" room uses this module.
+const listenAnimals=[{"id":"dog","name":"Собака","cry":"Гав-гав!","emoji":"🐕","group":"pets","local":"dog.wav"},{"id":"cat","name":"Кошка","cry":"Мяу-мяу!","emoji":"🐈","group":"pets","local":"cat.wav"},{"id":"cow","name":"Корова","cry":"Му-у-у!","emoji":"🐄","group":"farm","local":"cow.wav"},{"id":"horse","name":"Лошадь","cry":"И-го-го!","emoji":"🐎","group":"equine","local":"horse.wav"},{"id":"sheep","name":"Овечка","cry":"Бе-е-е!","emoji":"🐑","group":"bleat","local":"sheep.wav"},{"id":"pig","name":"Свинка","cry":"Хрю-хрю!","emoji":"🐖","group":"farm","local":"pig.ogg"},{"id":"duck","name":"Утка","cry":"Кря-кря!","emoji":"🦆","group":"waterbird","local":"duck.wav"},{"id":"goose","name":"Гусь","cry":"Га-га-га!","emoji":"🪿","group":"waterbird","local":"goose.wav"},{"id":"rooster","name":"Петух","cry":"Ку-ка-ре-ку!","emoji":"🐓","group":"chicken","local":"rooster.wav"},{"id":"frog","name":"Лягушка","cry":"Ква-ква!","emoji":"🐸","group":"pond","local":"frog.wav"},{"id":"owl","name":"Сова","cry":"Ух-ух!","emoji":"🦉","group":"owl","local":"owl.wav"},{"id":"wolf","name":"Волк","cry":"У-у-у!","emoji":"🐺","group":"canid","local":"wolf.wav"},{"id":"cricket","name":"Сверчок","cry":"Цвир-цвир!","emoji":"🦗","group":"insect","local":"cricket.wav"},{"id":"seagull","name":"Чайка","cry":"Кья-кья!","emoji":"🐦","group":"waterbird","local":"seagull.wav"},{"id":"crow","name":"Ворона","cry":"Кар-кар!","emoji":"🐦‍⬛","group":"bird","local":null},{"id":"goat","name":"Коза","cry":"Ме-е-е!","emoji":"🐐","group":"bleat","local":null},{"id":"hen","name":"Курица","cry":"Ко-ко-ко!","emoji":"🐔","group":"chicken","local":null},{"id":"pigeon","name":"Голубь","cry":"Гур-гур!","emoji":"🕊️","group":"bird","local":null},{"id":"turkey","name":"Индюк","cry":"Кулдык-кулдык!","emoji":"🦃","group":"chicken","local":null},{"id":"bee","name":"Пчела","cry":"Ж-ж-ж!","emoji":"🐝","group":"insect","local":null},{"id":"cuckoo","name":"Кукушка","cry":"Ку-ку!","emoji":"🐦","group":"bird","local":null},{"id":"woodpecker","name":"Дятел","cry":"Тук-тук!","emoji":"🐦","group":"bird","local":null},{"id":"donkey","name":"Ослик","cry":"Иа-иа!","emoji":"🫏","group":"equine","local":null},{"id":"sparrow","name":"Воробей","cry":"Чик-чирик!","emoji":"🐦","group":"bird","local":null}];
+let listenBag=[],listenLast=null,listenPosition=-1,listenPoolSignature='';
+function listenNext(pool){
+  const signature=pool.map(a=>a.id).join(',');
+  if(signature!==listenPoolSignature){listenBag=[];listenPoolSignature=signature}
+  if(!listenBag.length){listenBag=shuffled(pool.map(a=>a.id));if(listenBag.length>1&&listenBag[0]===listenLast){const j=1+Math.floor(Math.random()*(listenBag.length-1));[listenBag[0],listenBag[j]]=[listenBag[j],listenBag[0]]}}
+  const id=listenBag.shift();listenLast=id;return pool.find(a=>a.id===id)
+}
+function listen(){
+  game.replaceChildren();
+  const media=window.LAPKI_ANIMAL_MEDIA||{};
+  const pool=listenAnimals.filter(a=>a.local||media[a.id]?.audio).map(a=>({...a,audio:media[a.id]?.audio||'./assets/audio/'+a.local,image:media[a.id]?.image||null}));
+  for(const a of pool)soundUrls['listen_'+a.id]=a.audio;
+  const target=listenNext(pool);let locked=false,wrong=0,clipTimer=null,attempted=new Set();
+  const room=make('div','listen-room');game.append(room);
+  const title=make('h2','listen-title','Кто так говорит?');room.append(title);
+  const play=btn('listen-play','',()=>playQuestion());play.setAttribute('aria-label','Послушать звук животного');
+  play.append(make('span','listen-speaker','🔊'),make('span','','Послушай ещё раз'));room.append(play);
+  const grid=make('div','listen-grid');room.append(grid);
+  const info=make('div','listen-info','Найди зверёнка');info.setAttribute('aria-live','polite');room.append(info);
+  const distinct=pool.filter(a=>a.id!==target.id&&a.group!==target.group&&!(target.id==='dog'&&a.id==='wolf')&&!(target.id==='wolf'&&a.id==='dog'));
+  const other=shuffled(distinct.length?distinct:pool.filter(a=>a.id!==target.id))[0];
+  const options=[target,other];let position=Math.random()<.5?0:1;if(listenPosition===position&&Math.random()<.65)position=1-position;listenPosition=position;if(position===1)options.reverse();
+  let rightButton=null;
+  function playQuestion(){if(locked||active!=='listen')return;if(clipTimer)clearTimeout(clipTimer);stopClips();sample('listen_'+target.id,.48);play.classList.remove('listening');void play.offsetWidth;play.classList.add('listening');clipTimer=later(()=>{if(!locked&&active==='listen'){stopClips();play.classList.remove('listening')}},4800)}
+  for(const a of options){
+    const b=btn('listen-card','',()=>{if(locked||active!=='listen'||attempted.has(a.id))return;
+      if(a.id!==target.id){wrong++;attempted.add(a.id);b.classList.add('listen-try');b.disabled=true;info.textContent='Давай ещё раз 💛';sample('tap',.18);if(wrong>=1&&rightButton)rightButton.classList.add('listen-hint');playQuestion();return}
+      locked=true;if(clipTimer)clearTimeout(clipTimer);stopClips();play.disabled=true;play.classList.remove('listening');grid.querySelectorAll('button').forEach(x=>{x.disabled=true;if(x!==b)x.classList.add('listen-dim')});b.classList.add('listen-correct');info.textContent=a.name+'! '+a.cry;party(b);chime();later(()=>{if(active==='listen')say('Ура! Молодец!')},270);later(()=>{if(active==='listen')listen()},2400)
+    });
+    if(a.id===target.id)rightButton=b;
+    b.setAttribute('aria-label',a.name);const pic=make('div','listen-picture');
+    const fallback=make('span','listen-fallback',a.emoji);pic.append(fallback);
+    if(a.image){const img=make('img','listen-photo');img.alt=a.name;img.draggable=false;img.decoding='async';img.onload=()=>fallback.hidden=true;img.onerror=()=>img.remove();img.src=a.image;pic.append(img)}
+    b.append(pic,make('span','listen-name',a.name));grid.append(b)
+  }
+  warm(['listen_'+target.id,'listen_'+other.id,...listenBag.slice(0,2).map(id=>'listen_'+id)]);
+  later(playQuestion,120);
+}
 function sort(){game.replaceChildren();let p=shuffled(palette.slice(0,3))[0],locked=false;prompt('Положи шарик в такую же корзинку');const {icon,s}=scene('●');icon.style.color=p[1];s.style.minHeight='155px';const g=playGrid(true);shuffled(palette.slice(0,3)).forEach(c=>{const b=big('🧺','',()=>{if(locked)return;if(p===c){locked=true;good(b);later(sort,1700)}else say('Попробуй ещё')},c[1]);b.setAttribute('aria-label',c[0]);g.append(b)})}
 function tapField(kind){warm(['pop','reward','boing']);prompt(kind==='stars'?'Лови звёздочки!':'Лопай шарики!');let n=0;const field=make('div','bubble-field');game.append(field);const f=feedback();function spawn(){if(active!==kind)return;const b=btn('bubble',kind==='stars'?'⭐':'🎈',()=>{b.remove();sample(kind==='stars'?'collect':'pop',.3);n++;if(n%4===0){f.textContent='Ура! ⭐';say('Ура! Молодец!')}later(spawn,220)});const sz=90,x=Math.random()*Math.max(0,field.clientWidth-sz),y=Math.random()*Math.max(0,field.clientHeight-sz);b.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+x+'px;top:'+y+'px;--bg:'+pastels[n%pastels.length]+';font-size:48px';b.setAttribute('aria-label',kind==='stars'?'Поймать звезду':'Лопнуть шарик');field.append(b)}for(let i=0;i<3;i++)later(spawn,i*130)}
 function stars(){tapField('stars')}function balloons(){tapField('balloons')}
